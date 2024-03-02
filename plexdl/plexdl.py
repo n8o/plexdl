@@ -99,10 +99,10 @@ class Client:
         for this_server in self.available_servers:
             if not this_server.presence:
                 continue
-            try:
-                for connection in this_server.connections:
-                    if connection.local:
-                        continue
+            for connection in this_server.connections:
+                if connection.local:
+                    continue
+                try:
                     this_server_connection = PlexServer(connection.uri, this_server.accessToken)
                     relay_status = ""
                     if connection.relay:
@@ -121,7 +121,7 @@ class Client:
                     for item in this_server_connection.search(self.title):
                         self.print_all_items_for_server(self, item, this_server.accessToken)
 
-            except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout) as e:
-                print(f'ERROR: connection to "{this_server.name}" failed.')
-                log.debug(e)
-                continue
+                except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout) as e:
+                    print(f'ERROR: connection to "{this_server.name}" failed.')
+                    log.debug(e)
+                    continue

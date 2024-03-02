@@ -19,3 +19,4 @@ __pycache__
 dev.env
 env
 pip-wheel-metadata
+/poetry.lock

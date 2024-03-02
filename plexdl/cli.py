@@ -62,7 +62,7 @@ def get_server_info(
             print(f"    httpsRequired: {server.httpsRequired}")
             print(f"    name: {server.name}")
             print(f"    owned: {server.owned}")
-            print(f"    ownerid: {server.ownerid}")
+            #print(f"    ownerid: {server.ownerid}")
             print(f"    platform: {server.platform}")
             print(f"    platformVersion: {server.platformVersion}")
             print(f"    presence: {server.presence}")
